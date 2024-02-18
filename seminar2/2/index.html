@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin-top: 30px;
+        margin-left: 40%;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 12px;
+      }
+      td.id {
+        width: 50px;
+        text-align: center;
+      }
+      td.name {
+        width: 100px;
+        text-align: center;
+      }
+      td.price {
+        width: 50px;
+      }
+
+      th {
+        background-color: #827a7abe;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app1">
+      <table>
+        <thead>
+          <caption style="font-weight: bold">
+            Product List
+          </caption>
+          <tr>
+            <th>
+              <a href="#" @click="setSortOrder('id')">
+                <span>
+                  Id {{ sortOrder.field === 'id' ? (sortOrder.ascending ? '▲' :
+                  '▼') : '' }}
+                </span>
+              </a>
+            </th>
+            <th>
+              <a href="#" @click="setSortOrder('name')">
+                <span>
+                  Name {{ sortOrder.field === 'name' ? (sortOrder.ascending ?
+                  '▲' : '▼') : '' }}
+                </span>
+              </a>
+            </th>
+            <th>
+              <a href="#" @click="setSortOrder('price')">
+                <span>
+                  Price {{ sortOrder.field === 'price' ? (sortOrder.ascending ?
+                  '▲' : '▼') : '' }}
+                </span>
+              </a>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="product in sortedProducts" :key="product.id">
+            <td class="id">{{ product.id }}</td>
+            <td class="name">{{ product.name }}</td>
+            <td class="price">{{ product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      const app1 = new Vue({
+        el: "#app1",
+        data: {
+          products: [
+            { id: 1, name: "Продукт 1", price: 12 },
+            { id: 2, name: "Продукт 2", price: 20 },
+            { id: 3, name: "Продукт 3", price: 35 },
+            { id: 4, name: "Продукт 4", price: 85 },
+            { id: 5, name: "Продукт 5", price: 85 },
+            { id: 6, name: "Продукт 6", price: 55 },
+            { id: 7, name: "Продукт 7", price: 42 },
+            { id: 8, name: "Продукт 8", price: 66 },
+            { id: 9, name: "Продукт 9", price: 88 },
+            { id: 10, name: "Продукт 10", price: 13 },
+          ],
+          sortOrder: { field: "id", ascending: true },
+        },
+        computed: {
+          sortedProducts() {
+            const sortFunction = (a, b) => {
+              if (this.sortOrder.field === "price") {
+                return (
+                  (this.sortOrder.ascending ? 1 : -1) * (a.price - b.price)
+                );
+              } else if (this.sortOrder.field === "name") {
+                return (
+                  (this.sortOrder.ascending ? 1 : -1) *
+                  a.name.localeCompare(b.name)
+                );
+              } else if (this.sortOrder.field === "id") {
+                return (this.sortOrder.ascending ? 1 : -1) * (a.id - b.id);
+              }
+            };
+            return [...this.products].sort(sortFunction);
+          },
+        },
+        methods: {
+          setSortOrder(field) {
+            if (this.sortOrder.field === field) {
+              this.sortOrder.ascending = !this.sortOrder.ascending;
+            } else {
+              this.sortOrder.field = field;
+              this.sortOrder.ascending = true;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+const app = new Vue({
+  el: "#app",
+  data: {
+    articlesData: [
+      {
+        id: 1,
+        src: "../img/Image (1).png",
+        alt: "interior",
+        title: "Let’s Get Solution For Building Construction Work",
+        date: "26 December,2022",
+        button: "Kitchan Design",
+      },
+      {
+        id: 2,
+        src: "../img/Image (2).png",
+        alt: "interior",
+        title: "Low Cost Latest Invented Interior Designing Ideas.",
+        date: "22 December,2022",
+        button: "Living Design",
+      },
+      {
+        id: 3,
+        src: "../img/Image (3).png",
+        alt: "interior",
+        title: "Best For Any Office & Business Interior Solution",
+        date: "25 December,2022",
+        button: "Interior Design",
+      },
+      {
+        id: 4,
+        src: "../img/Image (4).png",
+        alt: "interior",
+        title: "Let’s Get Solution For Building Construction Work",
+        date: "26 December,2022",
+        button: "Kitchan Design",
+      },
+      {
+        id: 5,
+        src: "../img/Image (5).png",
+        alt: "interior",
+        title: "Low Cost Latest Invented Interior Designing Ideas.",
+        date: "22 December,2022",
+        button: "Living Design",
+      },
+      {
+        id: 6,
+        src: "../img/Image (6).png",
+        alt: "interior",
+        title: "Best For Any Office & Business Interior Solution",
+        date: "25 December,2022",
+        button: "Interior Design",
+      },
+    ],
+  },
+});

@@ -1,0 +1,47 @@
+@import "variables";
+
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 135px;
+
+    &-title {
+        color: $primary-text-color;
+        font-family: $serif-font;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%; /* 31.25px */
+    }
+
+    &-text {
+        color: $secondary-text-color;
+        font-family: $sans-serif-font;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 300%; /* 66px */
+        letter-spacing: 0.22px;
+    }
+
+    &-pages,
+    &-contacts,
+    &-logo {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 54px;
+    margin-top: 30px;
+}
+
+.icon {
+    width: 30px;
+}

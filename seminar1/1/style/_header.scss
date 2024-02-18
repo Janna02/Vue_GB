@@ -1,0 +1,52 @@
+@import "variables";
+
+.header {
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 399px;
+    margin-top: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &-img {
+        width: 34px;
+        height: 34px;
+    }
+
+    &-text {
+        color: $primary-text-color;
+        font-family: $serif-font;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 125%;
+    }
+}
+
+.menubar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 50px;
+    color: $primary-text-color;
+    text-align: center;
+    font-family: $sans-serif-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 25px */
+}
